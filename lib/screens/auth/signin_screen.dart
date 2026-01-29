@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/screens/auth/signup_screen.dart';
+import 'package:ecommerce_app/screens/bottom_nav.dart';
 import 'package:ecommerce_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
@@ -18,12 +20,25 @@ class _SigninScreenState extends State<SigninScreen> {
   void signin() {
     if (_usernameController.text == username &&
         _passwordController.text == password) {
-      //Redirect to home screen
+      //HOME SCREEN
       Navigator.of(
         context,
-      ).push(MaterialPageRoute<void>(builder: (context) => const HomeScreen()));
+      ).push(MaterialPageRoute<void>(builder: (context) => const BottomNav()));
     } else {
-      //show error snackbar
+      const snackbar = SnackBar(
+        elevation: 0,
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.transparent,
+        content: AwesomeSnackbarContent(
+          title: 'Login Error',
+          message: 'Incorrect, Username or Password!',
+          contentType: ContentType.failure,
+        ),
+      );
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(snackbar);
     }
   }
 
@@ -33,20 +48,10 @@ class _SigninScreenState extends State<SigninScreen> {
       body: Padding(
         padding: const EdgeInsets.all(100.0),
         child: Column(
-          //logo
-
-          //welcome text
-
-          //user
-
-          //pass
-
-          //signin txtbtn
-
-          //signup txtbtn
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // logo
             Container(
               child: Image.asset(
                 'assets/images/c_kamote.png',
@@ -55,8 +60,8 @@ class _SigninScreenState extends State<SigninScreen> {
               ),
             ),
 
+            // login label
             SizedBox(height: 10),
-            // LOGIN
             Text(
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -66,8 +71,8 @@ class _SigninScreenState extends State<SigninScreen> {
               "LOGIN:",
             ),
 
-            SizedBox(height: 30),
             // email textfield
+            SizedBox(height: 30),
             TextField(
               controller: _usernameController,
               obscureText: false,
@@ -96,8 +101,8 @@ class _SigninScreenState extends State<SigninScreen> {
               ),
             ),
 
-            SizedBox(height: 10),
             // pass textfield
+            SizedBox(height: 10),
             TextField(
               controller: _passwordController,
               obscureText: true,
@@ -126,24 +131,38 @@ class _SigninScreenState extends State<SigninScreen> {
               ),
             ),
 
-            SizedBox(height: 20),
             // login button
+            SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: signin,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFD47BE4),
-                  foregroundColor: Colors.white,
+                  backgroundColor: Color.fromARGB(255, 190, 0, 133),
                 ),
-                child: Text("LOGIN", style: TextStyle(fontSize: 17)),
+                onPressed: signin,
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    letterSpacing: 3,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ),
               ),
             ),
 
             SizedBox(height: 30),
             // register
-            TextButton(onPressed: () {}, child: Text("Register")),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignupScreen()),
+                );
+              },
+              child: Text("Register"),
+            ),
           ],
         ),
       ),
