@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/screens/auth/signup_screen.dart';
 import 'package:ecommerce_app/screens/bottom_nav.dart';
-import 'package:ecommerce_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
@@ -15,7 +14,7 @@ class _SigninScreenState extends State<SigninScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   String username = "admin";
-  String password = "123456";
+  String password = "admin";
 
   void signin() {
     if (_usernameController.text == username &&
