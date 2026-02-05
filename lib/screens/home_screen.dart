@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/screens/auth/signin_screen.dart';
 import 'package:ecommerce_app/screens/message_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,37 +13,49 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppBar(
-        //appbar
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        title: TextField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: const Color.fromARGB(255, 200, 181, 255),
-            label: Text(
-              style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-              "Search",
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurpleAccent,
+        foregroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SigninScreen()),
+            );
+          },
+        ),
+        automaticallyImplyLeading: false,
+        title: Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: SizedBox(
+            height: 45,
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search...',
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 12,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide.none,
+                ),
+                fillColor: Colors.white,
+                filled: true,
+              ),
             ),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
           ),
         ),
-        centerTitle: true,
-
-        //notif
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-              icon: const Icon(Icons.message_outlined),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MessageScreen(),
-                  ),
-                );
-              },
-            ),
+          IconButton(
+            icon: Icon(Icons.message),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MessageScreen()),
+              );
+            },
           ),
         ],
       ),
