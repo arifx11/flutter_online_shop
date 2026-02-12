@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/screens/auth/signin_screen.dart';
+import 'package:ecommerce_app/screens/bottom_nav.dart';
 import 'package:flutter/material.dart';
 
 class MessageScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _MessageScreenState extends State<MessageScreen> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SigninScreen()),
+              MaterialPageRoute(builder: (context) => const BottomNav()),
             );
           },
         ),

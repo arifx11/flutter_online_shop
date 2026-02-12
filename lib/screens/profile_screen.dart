@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/screens/auth/signin_screen.dart';
 import 'package:ecommerce_app/screens/cart_screen.dart';
-import 'package:ecommerce_app/screens/home_screen.dart';
 import 'package:ecommerce_app/screens/message_screen.dart';
 import 'package:ecommerce_app/screens/notification_screen.dart';
 import 'package:flutter/material.dart';
