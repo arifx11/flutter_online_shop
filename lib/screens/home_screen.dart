@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         automaticallyImplyLeading: false,
         title: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.only(right: 40),
           child: SizedBox(
             height: 45,
             child: TextField(

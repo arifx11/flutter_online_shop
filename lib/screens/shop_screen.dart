@@ -1,10 +1,50 @@
+import 'package:ecommerce_app/models/product.dart';
+import 'package:ecommerce_app/screens/bottom_nav.dart';
 import 'package:ecommerce_app/screens/cart_screen.dart';
-import 'package:ecommerce_app/screens/home_screen.dart';
 import 'package:ecommerce_app/screens/message_screen.dart';
 import 'package:flutter/material.dart';
 
 class ShopScreen extends StatelessWidget {
-  const ShopScreen({super.key});
+  ShopScreen({super.key});
+
+  final List<Product> products = [
+    Product(
+      id: "1",
+      name: "Kamote Chips",
+      price: 51.00,
+      image: "assets/images/kamote_chips.png",
+    ),
+    Product(
+      id: "2",
+      name: "Garlic Chips",
+      price: 52.00,
+      image: "assets/images/garlic_chip.png",
+    ),
+    Product(
+      id: "3",
+      name: "Kang Kong Chips",
+      price: 53.00,
+      image: "assets/images/kangkong_chips.png",
+    ),
+    Product(
+      id: "4",
+      name: "Mushroom Chips",
+      price: 54.00,
+      image: "assets/images/mushroom_chip.png",
+    ),
+    Product(
+      id: "5",
+      name: "Potato Chips",
+      price: 55.00,
+      image: "assets/images/potato_chip.png",
+    ),
+    Product(
+      id: "6",
+      name: "Banana Chips",
+      price: 56.00,
+      image: "assets/images/banana_chip.png",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +57,13 @@ class ShopScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
+              MaterialPageRoute(builder: (context) => const BottomNav()),
             );
           },
         ),
         automaticallyImplyLeading: false,
         title: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.only(right: 0),
           child: SizedBox(
             height: 45,
             child: TextField(
@@ -66,25 +106,23 @@ class ShopScreen extends StatelessWidget {
       ),
 
       body: GridView.builder(
-        itemCount: 5,
+        itemCount: products.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
         itemBuilder: (context, index) {
+          final product = products[index];
           return Card(
             child: Column(
               children: [
                 Expanded(
-                  child: Image.asset(
-                    'assets/images/kamote_chips.png',
-                    fit: BoxFit.contain,
-                  ),
+                  child: Image.asset(product.image, fit: BoxFit.contain),
                 ),
                 Text(
-                  "Chips",
+                  product.name,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
-                Text("₱150.00"),
+                Text("₱${product.price.toStringAsFixed(2)}"),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: ElevatedButton(

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/screens/bottom_nav.dart';
+import 'package:ecommerce_app/screens/shop_screen.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatefulWidget {
@@ -26,12 +27,12 @@ class _CartScreenState extends State<CartScreen> {
         ),
         automaticallyImplyLeading: false,
         title: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.only(right: 80),
           child: SizedBox(
             height: 45,
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Search products...',
+                hintText: 'Search cart...',
                 contentPadding: EdgeInsets.symmetric(
                   vertical: 8,
                   horizontal: 12,

@@ -53,7 +53,7 @@ class _SigninScreenState extends State<SigninScreen> {
             // logo
             Container(
               child: Image.asset(
-                'assets/images/c_kamote.png',
+                'assets/images/chip_store.png',
                 height: 100.0,
                 width: 100.0,
               ),
@@ -88,7 +88,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.purple,
+                    color: Colors.deepPurple,
                     style: BorderStyle.solid,
                     width: 2,
                   ),
@@ -118,7 +118,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.purple,
+                    color: Colors.deepPurple,
                     style: BorderStyle.solid,
                     width: 2,
                   ),
@@ -137,7 +137,7 @@ class _SigninScreenState extends State<SigninScreen> {
               height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 190, 0, 133),
+                  backgroundColor: Colors.deepPurpleAccent,
                 ),
                 onPressed: signin,
                 child: Text(

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/screens/bottom_nav.dart';
 import 'package:ecommerce_app/screens/shop_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,13 +16,13 @@ class NotificationScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ShopScreen()),
+              MaterialPageRoute(builder: (context) => const BottomNav()),
             );
           },
         ),
         automaticallyImplyLeading: false,
         title: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.only(right: 80),
           child: SizedBox(
             height: 45,
             child: TextField(

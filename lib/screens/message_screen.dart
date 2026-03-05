@@ -26,7 +26,7 @@ class _MessageScreenState extends State<MessageScreen> {
         ),
         automaticallyImplyLeading: false,
         title: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.only(right: 80),
           child: SizedBox(
             height: 45,
             child: TextField(
